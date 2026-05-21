@@ -9,7 +9,7 @@ map("n", "<leader>w", function()
 end, { desc = "Format + Save" })
 
 -- General
-map("n", "<leader>q",  ":q<CR>")
+map("n", "<leader>q", ":q<CR>")
 map("n", "<leader>pv", ":Ex<CR>")
 
 -- Diagnostics
@@ -35,14 +35,14 @@ vim.api.nvim_set_keymap("n", "<leader><Tab>", "<C-w>w", { noremap = true, silent
 
 -- Visual mode: delete without yanking
 map("v", "d", '"_d', { noremap = true, silent = true, desc = "Delete without yank" })
-map("v", "x", "d",   { noremap = true, silent = true, desc = "Yank + delete" })
+map("v", "x", "d", { noremap = true, silent = true, desc = "Yank + delete" })
 
 -- Folding
 map("n", "za", "za", { desc = "Toggle Fold" })
 map("n", "<leader>z", function()
   if vim.wo.foldmethod ~= "expr" then
     vim.wo.foldmethod = "expr"
-    vim.wo.foldexpr  = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
   end
   pcall(function() vim.cmd("normal! za") end)
 end, { desc = "Toggle Fold" })
@@ -61,3 +61,8 @@ map("n", "<leader>f", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
 
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>")
+
+
+vim.keymap.set("n", "<leader>fr", function()
+  require("grug-far").open()
+end, { desc = "Search and replace (grug-far)" })
