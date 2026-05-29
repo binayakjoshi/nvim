@@ -66,3 +66,13 @@ map("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>fr", function()
   require("grug-far").open()
 end, { desc = "Search and replace (grug-far)" })
+
+
+--latex
+vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<CR>", { desc = "LaTeX Compile" })
+
+vim.keymap.set("n", "<leader>lv", "<cmd>VimtexView<CR>", { desc = "LaTeX View PDF" })
+
+vim.keymap.set("n", "<leader>lt", "<cmd>VimtexTocToggle<CR>", { desc = "LaTeX TOC" })
+
+vim.keymap.set("n", "<leader>lc", "<cmd>VimtexClean<CR>", { desc = "LaTeX Clean" })
